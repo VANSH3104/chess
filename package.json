@@ -11,16 +11,20 @@
   "dependencies": {
     "chess.js": "^1.0.0-beta.8",
     "chessboard-ts": "^2.1.0",
+    "chessjs": "^0.0.1",
     "next": "14.2.5",
+    "next-ws": "^1.1.1",
     "react": "^18",
     "react-chessboard": "^4.7.1",
     "react-dom": "^18",
-    "stockfish": "^16.0.0"
+    "stockfish": "^16.0.0",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/ws": "^8.5.12",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
