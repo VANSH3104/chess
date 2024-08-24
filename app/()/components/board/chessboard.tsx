@@ -1,71 +1,47 @@
-// components/Chessboard.tsx
-import React, { useState, useEffect } from 'react';
-import Chess from 'chess.js';
+"use client";
+import React, { useState } from 'react';
+interface Square {
+  id: string;
+  isDark: boolean;
+  piece?: string; // You can store a piece or any other data here
+}
 
-const chess = new Chess();
-
-const generateBoard = () => {
-  const board: string[][] = [];
-  for (let row = 0; row < 8; row++) {
-    const rowArr = [];
-    for (let col = 0; col < 8; col++) {
-      rowArr.push((row + col) % 2 === 0 ? 'white' : 'black');
-    }
-    board.push(rowArr);
-  }
-  return board;
-};
-
-const Chessboard: React.FC = () => {
-  const [board, setBoard] = useState(generateBoard());
-  const [game, setGame] = useState(chess.fen());
-  const [ws, setWs] = useState<WebSocket | null>(null);
-
-  useEffect(() => {
-    const socket = new WebSocket('ws://localhost:8080');
-    setWs(socket);
-
-    socket.onmessage = (event) => {
-      const { type, data } = JSON.parse(event.data);
-      if (type === 'MOVE') {
-        chess.load(data.boardState);
-        setGame(chess.fen());
-      } else if (type === 'MESSAGE') {
-        // Handle new message
+export const ChessBoard: React.FC = () => {
+  const [squares, setSquares] = useState<Square[]>([]);
+  const alphabate = ['a', 'b', 'c', 'd', 'e', 'f', 'g' , 'h']
+  // Initialize the board when the component mounts
+  React.useEffect(() => {
+    const initialSquares: Square[] = [];
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        const isDark = (i + j) % 2 === 0;
+        initialSquares.push({ id: `${alphabate[j]}${8-i}`, isDark });
       }
-    };
-
-    return () => {
-      socket.close();
-    };
-  }, []);
-
-  const handleMove = (from: string, to: string) => {
-    const move = chess.move({ from, to });
-    if (move && ws) {
-      ws.send(JSON.stringify({ type: 'MAKE_MOVE', data: { gameId: 1, move: move.san } })); // Use actual game ID
-      setGame(chess.fen());
     }
-  };
-
-  const handleSquareClick = (row: number, col: number) => {
-    // Convert row and col to algebraic notation
-    // Example: handleMove('e2', 'e4');
+    setSquares(initialSquares);
+  }, []);
+  const handleSquareClick = (id: string) => {
+    console.log(`Square ${id} clicked!`);
+    setSquares(prevSquares =>
+      prevSquares.map(square =>
+        square.id === id ? { ...square, piece: square.piece ? undefined : 'P' } : square
+      )
+    );
   };
 
   return (
-    <div className="grid grid-cols-8 w-full h-full">
-      {board.flat().map((color, index) => (
+    <div className="grid grid-cols-8 grid-rows-8 w-full lg:w-[80%] h-full">
+      {squares.map(square => (
         <div
-          key={index}
-          className={`w-full h-full ${color === 'white' ? 'bg-white' : 'bg-gray-800'}`}
-          onClick={() => handleSquareClick(Math.floor(index / 8), index % 8)}
+          key={square.id}
+          onClick={() => handleSquareClick(square.id)}
+          className={`w-full h-full flex justify-center items-center cursor-pointer ${
+            square.isDark ? 'bg-gray-800' : 'bg-gray-200'
+          }`}
         >
-          {/* Render chess pieces here */}
+          {<img src='../../../../public/images/wp.png' />}
         </div>
       ))}
     </div>
   );
 };
-
-export default Chessboard;

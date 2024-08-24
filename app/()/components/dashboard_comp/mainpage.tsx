@@ -8,7 +8,7 @@ export const Mainpage = () => {
         <Player />
       </div>
       <div className="h-[80%] flex justify-center items-center">
-        <ChessBoard1 />
+        <ChessBoard />
       </div>
       <div className="h-[10%] flex justify-center items-center">
         <Player />
