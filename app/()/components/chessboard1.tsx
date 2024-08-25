@@ -1,6 +1,6 @@
 // pages/game.tsx
 import { useEffect, useState } from 'react';
-import Chessboard from '../components/board/chessboard';
+import Chessboard from './board/component/bot';
 import React from 'react';
 
 const GamePage: React.FC = () => {

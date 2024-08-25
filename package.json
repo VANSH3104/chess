@@ -16,6 +16,7 @@
     "bcrypt": "^5.1.1",
     "chess.js": "^1.0.0-beta.8",
     "chessboard-ts": "^2.1.0",
+    "chessboardjsx": "^2.4.7",
     "chessjs": "^0.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/chess.js": "^0.13.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
