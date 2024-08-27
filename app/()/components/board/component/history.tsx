@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
-import type { Move } from '../utils/engine';
+import type { Move } from 'chess.js';
 
-export const History: React.FC<{ history: Array<Move> }> = ({ history }) => {
+const History: React.FC<{ history: Array<Move> }> = ({ history }) => {
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

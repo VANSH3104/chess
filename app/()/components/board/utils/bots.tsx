@@ -1,5 +1,6 @@
 "use client"
 import {Chess} from 'chess.js';
+// import {} from "@/public/bots/lozza-1.18/lozza"
 import type { Fen } from '../utils/engine';
 import { ShortMove } from 'chess.js';
 export type UninitialisedBot = () => InitialisedBot;
@@ -41,27 +42,27 @@ const uciWorker = (file: string, actions: Array<string>): UninitialisedBot => ()
 
 const Bots: AvailableBots = {
   Random: randomMove,
-  // 'nmrugg/stockfish (l:1,d:10)': uciWorker('../../../../../public/bots/stockfish.js-10.0.2/stockfish', [
+  // 'nmrugg/stockfish (l:1,d:10)': uciWorker('bots/stockfish.js-10.0.2/stockfish.js', [
   //   'setoption name Skill Level value 1',
   //   'go depth 10',
   // ]),
-  // 'nmrugg/stockfish (l:20,d:10)': uciWorker('../../../../../public/bots/stockfish.js-10.0.2/stockfish', [
+  // 'nmrugg/stockfish (l:20,d:10)': uciWorker('bots/stockfish.js-10.0.2/stockfish.js', [
   //   'setoption name Skill Level value 20',
   //   'go depth 10',
   // ]),
-  // 'nmrugg/stockfish (l:20,t:1s)': uciWorker('../../../../../public/bots/stockfish.js-10.0.2/stockfish', [
+  // 'nmrugg/stockfish (l:20,t:1s)': uciWorker('bots/stockfish.js-10.0.2/stockfish.js', [
   //   'setoption name Skill Level value 20',
   //   'go movetime 1000',
   // ]),
-  'op12no2/lozza (l:1,d:10)': uciWorker('../../../../../public/bots/lozza-1.18/lozza.js', [
+  'op12no2/lozza (l:1,d:10)': uciWorker('bots/lozza-1.18/lozza.js', [
     'setoption name Skill Level value 1',
     'go depth 10',
   ]),
-  'op12no2/lozza (l:20,d:10)': uciWorker('../../../../../public/bots/lozza-1.18/lozza.js', [
+  'op12no2/lozza (l:20,d:10)': uciWorker('bots/lozza-1.18/lozza.js', [
     'setoption name Skill Level value 20',
     'go depth 10',
   ]),
-  'op12no2/lozza (l:20,t:1s)': uciWorker('../../../../../public/bots/lozza-1.18/lozza.js', [
+  'op12no2/lozza (l:20,t:1s)': uciWorker('bots/lozza-1.18/lozza.js', [
     'setoption name Skill Level value 20',
     'go movetime 1000',
   ]),

@@ -10,7 +10,7 @@ const ChessBoard =() => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-yellow-300">
+    <div className="container mx-auto p-4">
       <ChessboardComponent
         bots={bots}
         onGameCompleted={handleGameCompletion}

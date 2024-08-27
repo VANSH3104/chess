@@ -17,12 +17,12 @@ type BoardMove = {
 };
 
 const ChessGame: React.FC<{
+  setHistory: React.Dispatch<React.SetStateAction<Array<engine.Move>>>;
   bots: AvailableBots;
   onGameCompleted: (winner: engine.GameWinner) => void;
-}> = ({ bots, onGameCompleted }) => {
+}> = ({setHistory, bots, onGameCompleted }) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const [fen, setFen] = useState<engine.Fen>(engine.newGame());
-  const [history, setHistory] = useState<Array<engine.Move>>([]);
   const [whiteBot, setWhiteBot] = useState<SelectedBot>(null);
   const [blackBot, setBlackBot] = useState<SelectedBot>(null);
 
@@ -52,7 +52,7 @@ const ChessGame: React.FC<{
   
         // If the move is valid, update the state
         setFen(newFen);
-        setHistory(prevHistory => [...prevHistory, action]);
+        setHistory((prevHistory: any) => [...prevHistory, action]);
         return newFen;
   
       } catch (error) {
@@ -105,7 +105,7 @@ const ChessGame: React.FC<{
   }, [isPlaying, fen, whiteBot, blackBot, doMove]);
 
   return (
-    <div className="min-w-[750px]">
+    <div className="w-full">
       <div className="text-center">
         <BotSelector
           playerName="White"
@@ -128,10 +128,9 @@ const ChessGame: React.FC<{
           Reset
         </button>
       </div>
-      <div className="float-left">
+      <div className="">
         <Chessboard position={fen} allowDrag={onDragStart} onDrop={onMovePiece} />
       </div>
-      <History history={history} />
     </div>
   );
 };
