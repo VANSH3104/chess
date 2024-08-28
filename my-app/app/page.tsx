@@ -1,21 +1,18 @@
     "use client"
-    import { Mainpage } from "../()/components/dashboard_comp/mainpage";
-    import { Section } from "../()/components/dashboard_comp/section";
-    import { Sidebar } from "../()/components/dashboard_comp/sidebar";
-    import * as engine from '../()/components/board/utils/engine';
-    import { Title } from "../()/components/dashboard_comp/title";
-    import ChessboardComponent from '../()/components/board/component/chessgame';
-import type { AvailableBots } from '../()/components/board/utils/bots';
-import bots from '../()/components/board/utils/bots';
+    import { Mainpage } from "./()/components/dashboard_comp/mainpage";
+    import { Section } from "./()/components/dashboard_comp/section";
+    import { Sidebar } from "./()/components/dashboard_comp/sidebar";
+    import * as engine from './()/components/board/utils/engine';
+    import { Title } from "./()/components/dashboard_comp/title";
+    import ChessboardComponent from './()/components/board/component/chessgame';
+import type { AvailableBots } from './()/components/board/utils/bots';
+import bots from './()/components/board/utils/bots';
 import { useState } from "react";
-    const Page = () => {
+   const MainGame = () => {
         const [history, setHistory] = useState<Array<engine.Move>>([]);
         return (
             <div className="flex h-screen w-full overflow-hidden">
-                <div className="lg:w-[10%] h-full overflow-hidden hidden p-2 bg-neutral-700 lg:block">
-                    <Sidebar />
-                </div>
-                <div className="w-full lg:w-[90%] h-full md:flex flex-colmd:overflow-hidden overflow-auto">
+                <div className="w-full lg:w-[100%] h-full md:flex flex-colmd:overflow-hidden overflow-auto">
                     <div className="lg:w-[80%] md:w-[70%]  w-full h-full  md:overflow-hidden p-2 bg-neutral-700 ">
                         <div className="flex flex-col h-full w-full rounded-xl bg-customColor">
       <div className="h-full flex justify-center items-center">
@@ -43,4 +40,4 @@ import { useState } from "react";
     };
     
 
-    export default Page;
+    export default MainGame;

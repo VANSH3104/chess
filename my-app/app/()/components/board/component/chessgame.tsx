@@ -300,7 +300,7 @@ const ChessGame: React.FC<{
         Toggle Board Orientation
       </button>
   
-      <div className="flex justify-center w-full  h-full">
+      <div className="flex justify-center pb-2">
         <Chessboard
           position={fen}
           onDragStart={onDragStart}

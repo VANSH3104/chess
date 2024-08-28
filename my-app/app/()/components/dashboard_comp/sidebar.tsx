@@ -9,11 +9,6 @@ export const Sidebar = () => {
                 <Game />
             </div>
             </div>
-            <div className="pb-4">
-            <div className="text-white p-2 bg-neutral-700 hover:bg-neutral-600 font-extrabold rounded-xl">
-                <Logout />
             </div>
-            </div>
-        </div>
     );
 }
