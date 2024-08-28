@@ -2,6 +2,7 @@
 import {Chess} from 'chess.js';
 // import {} from "@/public/bots/lozza-1.18/lozza"
 import type { Fen } from '../utils/engine';
+//@ts-ignore
 import { ShortMove } from 'chess.js';
 export type UninitialisedBot = () => InitialisedBot;
 export type InitialisedBot = (fen: Fen) => Promise<ShortMove>;

@@ -303,6 +303,7 @@ const ChessGame: React.FC<{
       <div className="flex justify-center pb-2">
         <Chessboard
           position={fen}
+          //@ts-ignore
           onDragStart={onDragStart}
           onDrop={onMovePiece}
           orientation={reverseBoard ? 'black' : 'white'}

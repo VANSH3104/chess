@@ -1,5 +1,5 @@
     "use client"
-    import { Mainpage } from "./()/components/dashboard_comp/mainpage";
+    // import { Mainpage } from "./()/components/dashboard_comp/mainpage";
     import { Section } from "./()/components/dashboard_comp/section";
     import { Sidebar } from "./()/components/dashboard_comp/sidebar";
     import * as engine from './()/components/board/utils/engine';
