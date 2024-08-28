@@ -6,8 +6,8 @@ import AuthContext from "./contest/authcontext"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Message",
-  description: "Message",
+  title: "Chess Game",
+  description: "Chess Game",
 };
 
 export default function RootLayout({
