@@ -45,7 +45,7 @@ const ChessGame: React.FC<{
   };
   const setupWebSocket = () => {
     if (action === 'create' || action === 'join') {
-      const ws = new WebSocket('ws://localhost:8080');
+      const ws = new WebSocket('https://mixed-gwenora-vanshenterprices-0f87ad59.koyeb.app/');
 
       ws.onopen = () => {
         console.log('WebSocket connection established');
