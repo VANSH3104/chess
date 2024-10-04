@@ -31,7 +31,7 @@ import { useState } from "react";
     </div>
                     </div>
                     <div className="lg:w-[20%] md:w-[30%] w-full
-                     md:overflow-hidden h-full p-2 bg-neutral-700">
+                     md:overflow-hidden h-full p-2 bg-neutral-700 hidden md:block">
                         <Section history={history} />
                     </div>
                 </div>
