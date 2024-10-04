@@ -5,7 +5,6 @@ import Chessboard from "chessboardjsx";
 import * as engine from "../utils/engine";
 import BotSelector from "./bot";
 import type { AvailableBots, InitialisedBot } from "../utils/bots";
-import { IoReorderThreeSharp } from "react-icons/io5";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 
 import { Button } from "@/components/ui/button";
@@ -267,7 +266,7 @@ const ChessGame: React.FC<{
       // Notify the server to start the game when both players are connected
       if (socketRef.current && gameId) {
         socketRef.current.send(JSON.stringify({ type: "start", gameId }));
-        setPlaying(true); // Ensure the game is started on the client side
+        setPlaying(true); 
       }
     }
   }, [whiteConnected, blackConnected, action, gameId]);
@@ -285,11 +284,11 @@ const ChessGame: React.FC<{
       }
     };
 
-    handleResize(); // Set initial width
-    window.addEventListener("resize", handleResize); // Update width on resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Clean up
+      window.removeEventListener("resize", handleResize);
     };
   }, [window.innerWidth]);
   const handleClick = () => {
@@ -297,12 +296,11 @@ const ChessGame: React.FC<{
     if (clickTimeout.current) {
       clearTimeout(clickTimeout.current);
     }
-
-    // Set a timeout for single click
+    //@ts-ignore
     clickTimeout.current = setTimeout(() => {
-      setModalOpen(true); // Open modal
-      clickTimeout.current = null; // Clear the timeout
-    }, 250); // Delay for single click
+      setModalOpen(true); 
+      clickTimeout.current = null; 
+    }, 250);
   };
 
   const handleDoubleClick = () => {
@@ -394,7 +392,7 @@ const ChessGame: React.FC<{
           <div className="flex justify-center">
             <div className="w-full max-w-[650px]">
               <Chessboard
-                width={width} // Dynamic width based on screen size
+                width={width}
                 position={fen}
                 //@ts-ignore
                 onDragStart={onDragStart}
