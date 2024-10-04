@@ -16,7 +16,7 @@ import { useState } from "react";
                     <div className="lg:w-[80%] md:w-[70%]  w-full h-full  md:overflow-hidden p-2 bg-neutral-700 ">
                         <div className="flex flex-col h-full w-full rounded-xl bg-customColor">
       <div className="h-full flex justify-center items-center">
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 ">
       <ChessboardComponent
         setHistory={setHistory}
         bots={bots}
